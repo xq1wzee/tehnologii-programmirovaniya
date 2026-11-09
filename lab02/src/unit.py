@@ -1,18 +1,19 @@
-from lab02.src.game_object import GameObject
+from game_object import GameObject  # Импортируем базовый класс игровых объектов
 
-class Unit(GameObject):
-    def __init__(self, name, x, y, hp):
-        super().__init__(name, x, y)
-        self.__hp = hp
 
-    def isAlive(self):
-        return self.__hp > 0
+class Unit(GameObject):  # Создаём класс юнитов, который наследуется от GameObject
+    def __init__(self, name, x, y, hp):  # Конструктор принимает имя, координаты и здоровье
+        super().__init__(name, x, y)  # Вызываем конструктор родительского класса
+        self.__hp = hp  # Сохраняем здоровье конкретного юнита
 
-    def getHp(self):
-        return self.__hp
+    def isAlive(self):  # Метод проверяет, жив ли юнит
+        return self.__hp > 0  # Возвращаем True, если здоровье больше нуля
 
-    def receiveDamage(self, damage):
-        self.__hp -= damage
+    def getHp(self):  # Метод для получения текущего здоровья
+        return self.__hp  # Возвращаем количество здоровья
 
-        if self.__hp < 0:
-            self.__hp = 0
+    def receiveDamage(self, damage):  # Метод принимает количество полученного урона
+        self.__hp -= damage  # Уменьшаем здоровье на величину урона
+
+        if self.__hp < 0:  # Проверяем, не стало ли здоровье отрицательным
+            self.__hp = 0  # Если стало, устанавливаем здоровье на ноль

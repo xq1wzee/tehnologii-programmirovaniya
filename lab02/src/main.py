@@ -1,38 +1,39 @@
-from lab02.src.archer import Archer
-from lab02.src.fort import Fort
-from mobile_house import MobileHouse
+from archer import Archer  # Импортируем класс лучника
+from fort import Fort  # Импортируем класс крепости
+from mobile_house import MobileHouse  # Импортируем класс мобильного дома
 
-archer = Archer("Лучник", 2, 3, 100, 20)
-enemy = Archer("Противник", 5, 5, 100, 10)
-fort = Fort("Крепость", 1, 1, True, 30)
-house = MobileHouse("Дом на колесах", 4, 4, True)
 
-print("Игровые объекты:")
-print(archer.getName(), "ID:", archer.getId())
-print("Координаты:", archer.getX(), archer.getY())
-print("Здоровье:", archer.getHp())
+archer = Archer("Лучник", 2, 3, 100, 20)  # Создаём лучника с 100 HP и уроном 20
+enemy = Archer("Противник", 5, 5, 100, 10)  # Создаём второго лучника в роли противника
+fort = Fort("Крепость", 1, 1, True, 30)  # Создаём построенную крепость с уроном 30
+house = MobileHouse("Дом на колесах", 4, 4, True)  # Создаём построенный мобильный дом
 
-print("\nАтака лучника:")
-archer.attack(enemy)
-print("Здоровье противника:", enemy.getHp())
+print("Игровые объекты:")  # Выводим заголовок раздела
+print(archer.getName(), "ID:", archer.getId())  # Выводим имя и ID лучника
+print("Координаты:", archer.getX(), archer.getY())  # Выводим координаты лучника
+print("Здоровье:", archer.getHp())  # Выводим здоровье лучника
 
-print("\nАтака крепости:")
-fort.attack(enemy)
-print("Здоровье противника:", enemy.getHp())
+print("\nАтака лучника:")  # Переходим на новую строку и выводим заголовок
+archer.attack(enemy)  # Лучник атакует противника
+print("Здоровье противника:", enemy.getHp())  # Выводим здоровье противника после атаки
 
-print("\nПроверка состояния юнита:")
-print("Жив ли противник:", enemy.isAlive())
+print("\nАтака крепости:")  # Выводим заголовок атаки крепости
+fort.attack(enemy)  # Крепость атакует противника, если она построена
+print("Здоровье противника:", enemy.getHp())  # Выводим здоровье после атаки крепости
 
-print("\nПеремещение:")
-archer.move(6, 7)
-house.move(8, 9)
+print("\nПроверка состояния юнита:")  # Выводим заголовок проверки
+print("Жив ли противник:", enemy.isAlive())  # Проверяем, осталось ли у противника здоровье
 
-print("Новые координаты лучника:",
-      archer.getX(), archer.getY())
+print("\nПеремещение:")  # Выводим заголовок перемещения
+archer.move(6, 7)  # Перемещаем лучника в новые координаты
+house.move(8, 9)  # Перемещаем мобильный дом в новые координаты
 
-print("Новые координаты дома:",
-      house.getX(), house.getY())
+print("Новые координаты лучника:",  # Начинаем вывод новых координат лучника
+      archer.getX(), archer.getY())  # Выводим координаты X и Y лучника
 
-print("\nПроверка постройки:")
-print("Крепость построена:", fort.isBuilt())
-print("Дом построен:", house.isBuilt())
+print("Новые координаты дома:",  # Начинаем вывод новых координат дома
+      house.getX(), house.getY())  # Выводим координаты X и Y дома
+
+print("\nПроверка постройки:")  # Выводим заголовок проверки строительства
+print("Крепость построена:", fort.isBuilt())  # Проверяем, построена ли крепость
+print("Дом построен:", house.isBuilt())  # Проверяем, построен ли мобильный дом

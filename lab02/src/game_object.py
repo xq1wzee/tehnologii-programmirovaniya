@@ -1,25 +1,25 @@
-class GameObject:
-    next_id = 1
+class GameObject:  # Создаём базовый класс для всех игровых объектов
+    next_id = 1  # Общее поле класса: номер для следующего созданного объекта
 
-    def __init__(self, name, x, y):
-        self.__id = GameObject.next_id
-        GameObject.next_id += 1
-        self.__name = name
-        self.__x = x
-        self.__y = y
+    def __init__(self, name, x, y):  # Конструктор: запускается при создании объекта
+        self.__id = GameObject.next_id  # Записываем объекту его уникальный идентификатор
+        GameObject.next_id += 1  # Увеличиваем общий счётчик для следующего объекта
+        self.__name = name  # Сохраняем имя объекта
+        self.__x = x  # Сохраняем координату X
+        self.__y = y  # Сохраняем координату Y
 
-    def getId(self):
-        return self.__id
+    def getId(self):  # Метод для получения идентификатора объекта
+        return self.__id  # Возвращаем ID объекта
 
-    def getName(self):
-        return self.__name
+    def getName(self):  # Метод для получения имени объекта
+        return self.__name  # Возвращаем имя объекта
 
-    def getX(self):
-        return self.__x
+    def getX(self):  # Метод для получения координаты X
+        return self.__x  # Возвращаем координату X
 
-    def getY(self):
-        return self.__y
+    def getY(self):  # Метод для получения координаты Y
+        return self.__y  # Возвращаем координату Y
 
-    def setPosition(self, x, y):
-        self.__x = x
-        self.__y = y
+    def setPosition(self, x, y):  # Метод для изменения положения объекта
+        self.__x = x  # Записываем новую координату X
+        self.__y = y  # Записываем новую координату Y

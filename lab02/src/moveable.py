@@ -1,6 +1,7 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod  # Импортируем инструменты для абстрактного класса и метода
 
-class Moveable(ABC):
-    @abstractmethod
-    def move(self, x, y):
-        pass
+
+class Moveable(ABC):  # Создаём абстрактный класс, описывающий способность перемещаться
+    @abstractmethod  # Требуем, чтобы класс-наследник реализовал этот метод
+    def move(self, x, y):  # Объявляем метод перемещения с новыми координатами
+        pass  # Оставляем реализацию для дочерних классов

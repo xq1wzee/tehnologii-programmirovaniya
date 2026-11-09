@@ -1,6 +1,7 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod  # Импортируем инструменты для создания абстрактного класса и метода
 
-class Attacker(ABC):
-    @abstractmethod
-    def attack(self, unit):
-        pass
+
+class Attacker(ABC):  # Создаём абстрактный класс, описывающий способность атаковать
+    @abstractmethod  # Указываем, что метод обязательно должен быть реализован наследником
+    def attack(self, unit):  # Объявляем метод атаки, принимающий объект-цель
+        pass  # Оставляем реализацию пустой: каждый наследник определит её самостоятельно
